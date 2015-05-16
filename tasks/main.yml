@@ -1,0 +1,22 @@
+---
+- name: check shells
+  file: /usr/{{item}} state=present
+  ignore_errors: yes
+  register: shells_status
+  with_items: shells
+  tags:
+    - shell-conf
+
+- name: set available shells
+  set_fact: >
+    {%- set _d = available_shells.append(item.item) -%}
+  when: item|success
+  with_items: shells_status.results
+  tags:
+    - shell-conf
+
+- include: zsh.yml
+  when: shell == 'zsh' or (shell == 'auto' and 'zsh' in available_shells)
+
+- include: bash.yml
+  when: shell == 'bash' or (shell == 'auto' and 'zsh' in available_shells)

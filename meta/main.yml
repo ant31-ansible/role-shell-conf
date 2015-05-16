@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Antoine Legrand
+  description: Send shell (bash/zsh) config files to hosts
+  license: MIT
+  min_ansible_version: 1.6
+  categories:
+    - system
+dependencies: []

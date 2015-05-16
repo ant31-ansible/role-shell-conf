@@ -1,0 +1,5 @@
+shell: auto
+available_shells: []
+shells:
+  - zsh
+  - bash

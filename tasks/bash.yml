@@ -1,0 +1,5 @@
+- name: debug bash
+  debug: msg="Send bash conf: TODO"
+  tags:
+    - shell-conf
+    - bash-conf
